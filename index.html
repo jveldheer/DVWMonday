@@ -200,12 +200,6 @@
     margin-bottom: 12px;
   }
   
-  .exercise-description {
-    color: var(--gray);
-    font-size: 0.95em;
-    line-height: 1.4;
-  }
-  
   .click-indicator {
     position: absolute;
     bottom: 25px;
@@ -491,11 +485,6 @@
       font-size: 0.95em;
     }
     
-    .exercise-description {
-      font-size: 0.85em;
-      line-height: 1.3;
-    }
-    
     .click-indicator {
       display: none;
     }
@@ -630,7 +619,6 @@
       <div class="exercise-content">
         <h2 class="exercise-name">Lunge Isometric Hold</h2>
         <div class="exercise-details">2 rounds × 45 seconds each leg</div>
-        <p class="exercise-description">Hold the bottom position of a lunge, maintaining tension and proper knee alignment</p>
       </div>
       <div class="completed-indicator" onclick="toggleComplete(event, this)"></div>
       <div class="click-indicator">Click exercise for video</div>
@@ -642,7 +630,6 @@
       <div class="exercise-content">
         <h2 class="exercise-name">Pogo Jumps</h2>
         <div class="exercise-details">2 rounds × 20 reps</div>
-        <p class="exercise-description">Quick, reactive jumps focusing on minimal ground contact time</p>
       </div>
       <div class="completed-indicator" onclick="toggleComplete(event, this)"></div>
       <div class="click-indicator">Click exercise for video</div>
@@ -654,7 +641,6 @@
       <div class="exercise-content">
         <h2 class="exercise-name">Speed Skater to 45 Degree Kick</h2>
         <div class="exercise-details">4 rounds right AND left</div>
-        <p class="exercise-description">Lateral bound into a 45-degree hip extension, building power and stability</p>
       </div>
       <div class="completed-indicator" onclick="toggleComplete(event, this)"></div>
       <div class="click-indicator">Click exercise for video</div>
@@ -666,7 +652,6 @@
       <div class="exercise-content">
         <h2 class="exercise-name">Banded Bull-Hops</h2>
         <div class="exercise-details">8 rounds (30 seconds rest between)</div>
-        <p class="exercise-description">Explosive forward hops against band resistance, mimicking drive off the line</p>
       </div>
       <div class="completed-indicator" onclick="toggleComplete(event, this)"></div>
       <div class="click-indicator">Click exercise for video</div>
@@ -678,7 +663,6 @@
       <div class="exercise-content">
         <h2 class="exercise-name">Half-Kneeling Ankle Mobility</h2>
         <div class="exercise-details">2 min per side with box breathing (5 second boxes)</div>
-        <p class="exercise-description">Drive knee forward over toes while maintaining heel contact. Breathe: 5 sec in, 5 hold, 5 out, 5 hold</p>
       </div>
       <div class="completed-indicator" onclick="toggleComplete(event, this)"></div>
       <div class="click-indicator">Click exercise for video</div>
@@ -733,6 +717,7 @@ document.querySelectorAll('.exercise-card').forEach(card => {
   card.addEventListener('click', function(e) {
     if (!e.target.classList.contains('completed-indicator')) {
       const videoUrl = this.dataset.video;
+      // For now, revert to opening in new tab for reliability
       window.open(videoUrl, '_blank');
     }
   });
