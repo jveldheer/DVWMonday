@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Daily Vault Work - Monday</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
@@ -26,6 +26,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
   
   body {
@@ -98,13 +103,6 @@
     text-shadow: 0 0 25px var(--glow);
     text-transform: uppercase;
     margin-bottom: 10px;
-  }
-  
-  .page-subtitle {
-    color: var(--gray);
-    font-size: 1em;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
   }
   
   /* Main Content */
@@ -262,7 +260,6 @@
   .info-box p {
     color: var(--white);
     font-size: 1em;
-    font-style: italic;
   }
   
   /* Completed Indicator */
@@ -466,32 +463,137 @@
     color: var(--white);
   }
   
-  /* Meta viewport optimization */
-  @viewport {
-    width: device-width;
-    initial-scale: 1;
-  }
+  /* Mobile Responsive */
   @media (max-width: 768px) {
     .page-title {
-      font-size: 2.5em;
+      font-size: 2.2em;
+      letter-spacing: 1px;
+    }
+    
+    .exercise-container {
+      gap: 15px;
+    }
+    
+    .exercise-card {
+      padding: 20px 15px;
     }
     
     .exercise-content {
-      margin-left: 50px;
+      margin-left: 55px;
+      margin-right: 60px;
     }
     
     .exercise-name {
-      font-size: 1.4em;
+      font-size: 1.3em;
     }
     
     .exercise-details {
-      font-size: 1em;
+      font-size: 0.95em;
+    }
+    
+    .exercise-description {
+      font-size: 0.85em;
+      line-height: 1.3;
     }
     
     .click-indicator {
-      position: static;
-      margin-top: 15px;
-      display: inline-flex;
+      display: none;
+    }
+    
+    .completed-indicator {
+      width: 45px;
+      height: 45px;
+      right: 15px;
+    }
+    
+    .completed-indicator.checked::after {
+      font-size: 1.5em;
+    }
+    
+    .progress-ring {
+      bottom: 20px;
+      right: 20px;
+      width: 70px;
+      height: 70px;
+    }
+    
+    .progress-text {
+      font-size: 1.5em;
+    }
+    
+    .info-box {
+      padding: 15px;
+    }
+    
+    .info-box h3 {
+      font-size: 1.4em;
+    }
+    
+    .info-box p {
+      font-size: 0.9em;
+    }
+    
+    .celebration-text {
+      font-size: 4em;
+      letter-spacing: 2px;
+    }
+    
+    /* Prevent horizontal scroll on mobile */
+    body {
+      overflow-x: hidden;
+    }
+    
+    .exercise-card:hover {
+      transform: translateX(3px);
+    }
+    
+    /* Touch-friendly tap targets */
+    .completed-indicator {
+      min-width: 44px;
+      min-height: 44px;
+    }
+    
+    /* Optimize font sizes for readability */
+    .exercise-number {
+      width: 35px;
+      height: 35px;
+      font-size: 1.3em;
+      left: 15px;
+    }
+    
+    /* Better spacing for mobile */
+    main {
+      padding: 30px 15px;
+    }
+    
+    header {
+      padding: 25px 15px;
+    }
+  }
+  
+  /* Small mobile devices */
+  @media (max-width: 380px) {
+    .page-title {
+      font-size: 1.9em;
+    }
+    
+    .exercise-name {
+      font-size: 1.2em;
+    }
+    
+    .exercise-content {
+      margin-right: 55px;
+    }
+    
+    .celebration-text {
+      font-size: 3em;
+    }
+  }
+  
+  /* Prevent zoom on input focus (iOS) */
+  @media (max-width: 768px) {
+    input, select, textarea {
+      font-size: 16px;
     }
   }
 </style>
@@ -505,7 +607,6 @@
       <img src="vlvl16x9.png" alt="VLV Logo">
     </div>
     <h1 class="page-title">Daily Vault Work Monday</h1>
-    <p class="page-subtitle">Pre-Practice Activation Sequence</p>
   </div>
 </header>
 
@@ -513,7 +614,8 @@
 <main>
   <div class="info-box">
     <h3>INSTRUCTIONS</h3>
-    <p>Click on each exercise for video demonstration • Complete in order • Focus on quality movement</p>
+    <p style="margin-bottom: 8px;">Timing: In-Season → Pre-Practice | Off-Season → Pre or Post Lift</p>
+    <p style="margin-top: 0;">Comment #VaultPrimed after completion ⚡</p>
   </div>
 
   <div class="timer-display" id="timer">
